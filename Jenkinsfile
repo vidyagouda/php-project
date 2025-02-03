@@ -21,8 +21,15 @@ pipeline {
                     sh "echo $PASS | docker login -u $USER --password-stdin"
                     sh 'docker push vidyagouda/akshatnewimg6july:v1'
                 }
+                
             }
         }
+        stage("deployment"){
+            steps{
+                docker run -it --name c2 -p 9000:80 vidyagouda/akshatnewimg6july:v
+            }
+        }
+            
     }
 }
         
