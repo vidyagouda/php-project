@@ -26,7 +26,9 @@ pipeline {
         }
         stage("deployment"){
             steps{
-                docker run -it --name c2 -p 9000:80 vidyagouda/akshatnewimg6july:v
+                script{
+                sh 'docker run -dt --name c2 -p 9000:80 vidyagouda/akshatnewimg6july:v1'
+            }
             }
         }
             
